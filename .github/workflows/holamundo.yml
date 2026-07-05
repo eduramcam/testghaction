@@ -1,0 +1,30 @@
+name: hola-mundo-java
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  jml-check:
+    runs-on: ubuntu-latest
+    # 1. OpenJML requires a compatible Java Environment
+    steps:
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: oracle
+          java-version: 17 # Adjust based on the OpenJML version you target
+          java-package: jdk
+
+  # 2. Run Extended Static Checking (ESC) on your Java files
+  run-java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/setup-java@v4
+
+      - name: Compile and run Java Code
+        run: |
+          javac HelloWorld.java
+          java HelloWorld
