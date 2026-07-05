@@ -1,6 +1,6 @@
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Se eliminan los otros
+        System.out.println("Se eliminan los otros prints ");
 
     }
 }
